@@ -58,9 +58,10 @@ const Player = ({ currentSong, onNext, onPrev }: Props) => {
         <span className="font-gilroy">{artist}</span>
       </h3>
       <AudioPlayer
+        volume={0.7}
         className="max-w-lg"
         defaultDuration={null}
-        src={audio}
+        src={"/api/proxy/" + audio}
         onClickNext={onNext}
         onClickPrevious={onPrev}
         onEnded={onNext}

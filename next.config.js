@@ -11,14 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/proxy/mp3/:filename",
-        destination: "/api/proxy/mp3/:filename",
-      },
-    ];
-  },
 };
 
 export default nextConfig;
