@@ -7,12 +7,15 @@ export type Song = {
   id: string;
 };
 
+export const audioSrcTargetUrl = "https://cdn1.sefon.pro/prev/";
+
 const getData = (): Song[] => [
   {
     title: "Sonne",
     artist: "Rammstein",
     lyrics: "https://genius.com/Rammstein-sonne-lyrics",
-    audio: "6175.mp3",
+    audio:
+      "SMpjV14C58h1EE4O0QkRvA/1729065272/87/Rammstein%20-%20Sonne%20%28192kbps%29.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b27325d8b7c6feee0c8d6593d606",
     id: "1",
   },
@@ -20,7 +23,8 @@ const getData = (): Song[] => [
     title: "Нервы",
     artist: "Нервы",
     lyrics: "https://genius.com/Nervy-nerves-lyrics",
-    audio: "29272.mp3",
+    audio:
+      "zjHwdUIVjXgtmsdijEUVsA/1729065382/152/%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20-%20%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20%28192kbps%29.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273b0a298d09b243db0df4bc39d",
     id: "2",
   },
@@ -28,7 +32,8 @@ const getData = (): Song[] => [
     title: "Не с тобой я",
     artist: "Нервы",
     lyrics: "https://genius.com/Nervy-im-not-with-you-lyrics",
-    audio: "328384.mp3",
+    audio:
+      "uNJUUBUVBZ1SVLiaqmuYbQ/1729065427/536/%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20-%20%D0%9D%D0%B5%20%D0%A1%20%D0%A2%D0%BE%D0%B1%D0%BE%D0%B9%20%D0%AF%20%28192kbps%29.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b2737fa8475de0655bb66ab1b225",
     id: "3",
   },

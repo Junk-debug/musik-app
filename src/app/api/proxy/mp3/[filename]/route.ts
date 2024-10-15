@@ -1,3 +1,4 @@
+import { audioSrcTargetUrl } from "@/app/songs";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -5,9 +6,7 @@ export async function GET(
   { params }: { params: { filename: string } }
 ) {
   const { filename } = params;
-  // const targetUrl = `https://dl01.dtmp3.pw/mp3/${filename}`;
-  const targetUrl =
-    "https://cdn6.sefon.pro/prev/1JDRXRizwTowpPyonViu1Q/1729059387/152/%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20-%20%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20%28192kbps%29.mp3";
+  const targetUrl = audioSrcTargetUrl + filename;
 
   const rangeHeader = req.headers.get("range");
   const fetchOptions = {
