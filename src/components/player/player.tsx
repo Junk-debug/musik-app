@@ -40,6 +40,8 @@ const customIcons = {
 const fallbackImage =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW11c2ljLTIiPjxjaXJjbGUgY3g9IjgiIGN5PSIxOCIgcj0iNCIvPjxwYXRoIGQ9Ik0xMiAxOFYybDcgNCIvPjwvc3ZnPg==";
 
+const proxyUrl = "/api/proxy/mp3/";
+
 const Player = ({ currentSong, onNext, onPrev }: Props) => {
   const { cover, title, artist, audio } = currentSong;
 
@@ -61,7 +63,7 @@ const Player = ({ currentSong, onNext, onPrev }: Props) => {
         volume={0.7}
         className="max-w-lg"
         defaultDuration={null}
-        src={"/api/proxy/" + audio}
+        src={proxyUrl + audio}
         onClickNext={onNext}
         onClickPrevious={onPrev}
         onEnded={onNext}
