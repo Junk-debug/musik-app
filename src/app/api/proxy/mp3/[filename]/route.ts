@@ -8,23 +8,24 @@ export async function GET(
   const targetUrl = `https://dl01.dtmp3.pw/mp3/${filename}`;
 
   const rangeHeader = req.headers.get("range");
-  const fetchOptions = rangeHeader
-    ? {
-        headers: {
-          Range: rangeHeader,
-        },
-      }
-    : {};
+  const fetchOptions = {
+    headers: {
+      Range: rangeHeader || "",
+      Referer: "https://musik-app-green.vercel.app",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+    },
+  };
 
   try {
     const fetchRes = await fetch(targetUrl, fetchOptions);
 
-    // if (!fetchRes.ok) {
-    //   return new NextResponse(
-    //     "Failed to fetch audio file" + JSON.stringify(fetchRes),
-    //     { status: 500 }
-    //   );
-    // }
+    if (!fetchRes.ok) {
+      return new NextResponse(
+        "Failed to fetch audio file" + JSON.stringify(fetchRes),
+        { status: 500 }
+      );
+    }
 
     const responseHeaders = new Headers(fetchRes.headers);
     responseHeaders.set(
