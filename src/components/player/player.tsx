@@ -1,5 +1,8 @@
 "use client";
 
+import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
+import "./player.css";
+
 import {
   FastForward,
   Pause,
@@ -11,11 +14,9 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
-import "./player.css";
-import { Song } from "@/app/songs";
-
 import Image from "next/image";
+
+import { Song } from "@/app/songs";
 
 type Props = {
   currentSong: Song;
