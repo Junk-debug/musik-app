@@ -5,7 +5,9 @@ export async function GET(
   { params }: { params: { filename: string } }
 ) {
   const { filename } = params;
-  const targetUrl = `https://dl01.dtmp3.pw/mp3/${filename}`;
+  // const targetUrl = `https://dl01.dtmp3.pw/mp3/${filename}`;
+  const targetUrl =
+    "https://s1.tusic.net/files/mp3/nervy_-_tvoim_morem_tusic.net_128.mp3";
 
   const rangeHeader = req.headers.get("range");
   const fetchOptions = {
