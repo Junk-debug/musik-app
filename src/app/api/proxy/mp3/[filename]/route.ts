@@ -19,9 +19,12 @@ export async function GET(
   try {
     const fetchRes = await fetch(targetUrl, fetchOptions);
 
-    if (!fetchRes.ok) {
-      return new NextResponse("Failed to fetch audio file", { status: 500 });
-    }
+    // if (!fetchRes.ok) {
+    //   return new NextResponse(
+    //     "Failed to fetch audio file" + JSON.stringify(fetchRes),
+    //     { status: 500 }
+    //   );
+    // }
 
     const responseHeaders = new Headers(fetchRes.headers);
     responseHeaders.set(
