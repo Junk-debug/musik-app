@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   req: Request,
-  { params }: { params: { filename: string } }
+  { params }: { params: { filename: string[] } }
 ) {
-  const { filename } = params;
+  const filename = decodeURIComponent(params.filename.join("/"));
   const targetUrl = audioSrcTargetUrl + filename;
 
   const rangeHeader = req.headers.get("range");
@@ -31,7 +31,7 @@ export async function GET(
     const responseHeaders = new Headers(fetchRes.headers);
     responseHeaders.set(
       "Content-Disposition",
-      `inline; filename="${filename}"`
+      `inline; filename="${encodeURIComponent(filename)}"`
     );
     responseHeaders.set("Content-Type", "audio/mpeg");
 
