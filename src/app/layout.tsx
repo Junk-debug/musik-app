@@ -5,12 +5,28 @@ import "./globals.css";
 const gilroy = localFont({
   src: [
     {
-      path: "./fonts/Gilroy-ExtraBold.otf",
-      weight: "800",
+      path: "./fonts/Gilroy-Light.ttf",
+      weight: "300",
     },
     {
-      path: "./fonts/Gilroy-Light.otf",
-      weight: "300",
+      path: "./fonts/Gilroy-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "./fonts/Gilroy-Medium.ttf",
+      weight: "500",
+    },
+    {
+      path: "./fonts/Gilroy-SemiBold.ttf",
+      weight: "600",
+    },
+    {
+      path: "./fonts/Gilroy-Bold.ttf",
+      weight: "700",
+    },
+    {
+      path: "./fonts/Gilroy-ExtraBold.ttf",
+      weight: "800",
     },
   ],
   variable: "--font-gilroy",
