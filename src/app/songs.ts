@@ -37,6 +37,15 @@ const getData = (): Song[] => [
     cover: "https://i.scdn.co/image/ab67616d0000b2737fa8475de0655bb66ab1b225",
     id: "3",
   },
+  {
+    title: "Еле бьется",
+    artist: "Нервы",
+    lyrics: "https://genius.com/Nervy-barely-beats-lyrics",
+    audio:
+      "6A7rWK_5gkdTS4Xh1530bQ/1729059387/101/%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20-%20%D0%95%D0%BB%D0%B5%20%D0%91%D1%8C%D0%B5%D1%82%D1%81%D1%8F%20%28192kbps%29.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b273746b67dbb32fc0e9505b8f8a",
+    id: "4",
+  },
 ];
 
 export default getData;
