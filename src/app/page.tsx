@@ -5,7 +5,6 @@ import { Music } from "lucide-react";
 import Player from "@/components/player/player";
 import { useState } from "react";
 import getSongs from "./songs";
-import Lyrics from "@/components/lyrics"; // Import Lyrics component
 
 const Logo = () => (
   <h1 className="text-2xl font-gilroy font-extrabold">Musik app</h1>
@@ -37,12 +36,7 @@ export default function Home() {
           currentSong={currentSong}
         />
       </main>
-
-      <section className="lyrics-section">
-        <h2 className="text-xl font-bold">Lyrics (in Polish)</h2>
-        <Lyrics lyricsLink={currentSong.lyrics} /> 
-      </section>
-
+      <footer>footer</footer>
     </div>
   );
 }
