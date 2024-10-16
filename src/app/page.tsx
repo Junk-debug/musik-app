@@ -22,7 +22,7 @@ export default function Home() {
           <Music size={20} className="mr-1" /> Bibliothek
         </Button>
       </header>
-      <main className="flex-grow flex flex-col  justify-center">
+      <main className="flex-grow flex flex-col justify-center">
         <Player
           onNext={() => {
             console.log(currentSong);

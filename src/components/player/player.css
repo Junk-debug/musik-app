@@ -253,7 +253,7 @@
 }
 
 .rhap_volume-bar-area:active .rhap_volume-indicator {
-  transition-duration: 0s;
+  transition-duration: 0s !important;
 }
 
 .rhap_volume-filled {
