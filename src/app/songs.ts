@@ -8,6 +8,7 @@ export type Song = {
 };
 
 export const audioSrcTargetUrl = "https://download.xn--41a.wiki/cache/";
+export const proxyUrl = "/api/proxy/mp3/";
 
 const getData = (): Song[] => [
   {
