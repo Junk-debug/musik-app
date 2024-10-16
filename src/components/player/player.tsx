@@ -5,6 +5,7 @@ import "./player.css";
 
 import {
   FastForward,
+  MicVocal,
   Pause,
   Play,
   Repeat,
@@ -16,7 +17,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-import { Song } from "@/app/songs";
+import { audioSrcTargetUrl, Song } from "@/app/songs";
 
 type Props = {
   currentSong: Song;
@@ -40,10 +41,11 @@ const customIcons = {
 const fallbackImage =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW11c2ljLTIiPjxjaXJjbGUgY3g9IjgiIGN5PSIxOCIgcj0iNCIvPjxwYXRoIGQ9Ik0xMiAxOFYybDcgNCIvPjwvc3ZnPg==";
 
-const proxyUrl = "/api/proxy/mp3/";
+// const proxyUrl = "/api/proxy/mp3/";
 
 const Player = ({ currentSong, onNext, onPrev }: Props) => {
   const { cover, title, artist, audio } = currentSong;
+  const audioSrc = audioSrcTargetUrl + audio;
 
   return (
     <div className="flex flex-col items-center">
@@ -63,7 +65,7 @@ const Player = ({ currentSong, onNext, onPrev }: Props) => {
         volume={0.7}
         className="max-w-lg"
         defaultDuration={null}
-        src={proxyUrl + audio}
+        src={audioSrc}
         onClickNext={onNext}
         onClickPrevious={onPrev}
         onEnded={onNext}
@@ -74,6 +76,13 @@ const Player = ({ currentSong, onNext, onPrev }: Props) => {
           RHAP_UI.CURRENT_TIME,
           RHAP_UI.PROGRESS_BAR,
           RHAP_UI.DURATION,
+        ]}
+        customControlsSection={[
+          RHAP_UI.LOOP,
+          RHAP_UI.MAIN_CONTROLS,
+          <button className="text-muted-foreground" key={1}>
+            <MicVocal />
+          </button>,
         ]}
         customIcons={customIcons}
         showFilledVolume
