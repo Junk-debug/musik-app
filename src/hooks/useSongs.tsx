@@ -24,6 +24,10 @@ export default function useSongs(songs: Song[]) {
   };
 
   const playSong = (songIndex: number) => {
+    if (songIndex < 0 || songIndex >= songs.length) {
+      throw new Error("Invalid song index");
+    }
+
     setCurrentSongIndex(songIndex);
     setIsPlaying(true);
   };
