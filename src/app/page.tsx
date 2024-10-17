@@ -54,9 +54,13 @@ export default function Home() {
           </SheetTrigger>
           <SongsLibrary
             songs={songs}
+            onSongClick={(index, isCurrent) => {
+              if (isCurrent) {
+                playSong(index);
+              }
+            }}
             currentSongIndex={currentSongIndex}
             isPlaying={isPlaying}
-            playSong={playSong}
           />
         </Sheet>
       </header>

@@ -12,14 +12,14 @@ type Props = {
   songs: Song[];
   currentSongIndex: number;
   isPlaying: boolean;
-  playSong: (index: number) => void;
+  onSongClick: (index: number, isCurrent: boolean) => void;
 };
 
 export default function SongsLibrary({
   songs,
   currentSongIndex,
   isPlaying,
-  playSong,
+  onSongClick,
 }: Props) {
   return (
     <SheetContent className="px-0">
@@ -40,11 +40,7 @@ export default function SongsLibrary({
               isCurrent={isCurrent}
               key={song.id}
               song={song}
-              onClick={() => {
-                if (!isCurrent) {
-                  playSong(i);
-                }
-              }}
+              onClick={() => onSongClick(i, isCurrent)}
             />
           );
         })}
