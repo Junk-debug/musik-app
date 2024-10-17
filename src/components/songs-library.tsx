@@ -16,7 +16,7 @@ type Props = {
   songs: Song[];
   currentSongIndex: number;
   isPlaying: boolean;
-  onSongClick: (index: number, isCurrent: boolean) => void;
+  onSongClick: (index: number) => void;
 };
 
 export default function SongsLibrary({
@@ -46,11 +46,11 @@ export default function SongsLibrary({
             const isCurrent = i === currentSongIndex;
             return (
               <SongCard
-                isCurrentPlaying={isPlaying && isCurrent}
-                isCurrent={isCurrent}
+                isCurrentSongPlaying={isPlaying && isCurrent}
+                isSongCurrent={isCurrent}
                 key={song.id}
                 song={song}
-                onClick={() => onSongClick(i, isCurrent)}
+                onClick={() => onSongClick(i)}
               />
             );
           })}

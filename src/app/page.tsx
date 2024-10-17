@@ -28,8 +28,8 @@ export default function Home() {
 
         <SongsLibrary
           songs={songs}
-          onSongClick={(index, isCurrent) => {
-            if (!isCurrent) {
+          onSongClick={(index) => {
+            if (index !== currentSongIndex) {
               playSong(index);
             }
           }}

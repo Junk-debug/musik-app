@@ -5,14 +5,14 @@ import { HTMLAttributes } from "react";
 
 type Props = {
   song: Song;
-  isCurrent?: boolean;
-  isCurrentPlaying?: boolean;
+  isSongCurrent?: boolean;
+  isCurrentSongPlaying?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function SongCard({
   song,
-  isCurrent,
-  isCurrentPlaying,
+  isSongCurrent: isCurrent,
+  isCurrentSongPlaying,
   className,
   ...props
 }: Props) {
@@ -32,7 +32,7 @@ export default function SongCard({
       {isCurrent && (
         <Equalizer
           className={`self-center ml-auto ${
-            isCurrentPlaying || "[&>rect]:animate-none"
+            isCurrentSongPlaying || "[&>rect]:animate-none"
           }`}
         />
       )}
