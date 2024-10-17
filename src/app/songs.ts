@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 export type Song = {
   title: string;
   artist: string;
@@ -17,7 +19,7 @@ const getData = (): Song[] => [
     lyrics: "https://genius.com/Rammstein-sonne-lyrics",
     audio: "2/7db/371745469_456508979.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b27325d8b7c6feee0c8d6593d606",
-    id: "1",
+    id: uuid(),
   },
   {
     title: "Нервы",
@@ -25,7 +27,7 @@ const getData = (): Song[] => [
     lyrics: "https://genius.com/Nervy-nerves-lyrics",
     audio: "4/7bb/371745465_456591636.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273b0a298d09b243db0df4bc39d",
-    id: "2",
+    id: uuid(),
   },
   {
     title: "Не с тобой я",
@@ -33,7 +35,7 @@ const getData = (): Song[] => [
     lyrics: "https://genius.com/Nervy-im-not-with-you-lyrics",
     audio: "2/419/474499263_456543019.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b2737fa8475de0655bb66ab1b225",
-    id: "3",
+    id: uuid(),
   },
   {
     title: "Еле бьется",
@@ -41,7 +43,7 @@ const getData = (): Song[] => [
     lyrics: "https://genius.com/Nervy-barely-beats-lyrics",
     audio: "3/1bf/474499276_456349108.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273746b67dbb32fc0e9505b8f8a",
-    id: "4",
+    id: uuid(),
   },
 ];
 

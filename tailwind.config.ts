@@ -61,6 +61,22 @@ const config: Config = {
         "geist-sans": ["var(--font-geist-sans)"],
         "geist-mono": ["var(--font-geist-mono)"],
       },
+      keyframes: {
+        "short-eq": {
+          "0%": { height: "8px" },
+          "50%": { height: "4px" },
+          "100%": { height: "8px" },
+        },
+        "tall-eq": {
+          "0%": { height: "16px" },
+          "50%": { height: "6px" },
+          "100%": { height: "16px" },
+        },
+      },
+      animation: {
+        "short-eq": "short-eq 0.5s infinite",
+        "tall-eq": "tall-eq 0.5s infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
