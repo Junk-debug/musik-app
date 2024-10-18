@@ -4,10 +4,14 @@ import { forwardRef } from "react";
 
 const LyricsCard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <pre className="bg-secondary shadow-lg p-4 rounded text-card-foreground whitespace-pre-wrap">
+    <pre className="bg-secondary font-gilroy shadow-lg p-4 rounded text-card-foreground whitespace-pre-wrap">
       {children}
     </pre>
   );
+};
+
+const Heading = ({ children }: { children: React.ReactNode }) => {
+  return <h3 className="text-2xl mb-4 font-semibold">{children}</h3>;
 };
 
 type Props = {
@@ -32,7 +36,8 @@ const Lyrics = forwardRef<HTMLDivElement, Props>(
         className={`flex flex-col md:flex-row gap-8 ${className || ""}`}
       >
         <div className="basis-1/2">
-          <h2 className="text-2xl mb-4">Original Songtext</h2>
+          <Heading>Original Songtext</Heading>
+
           {isLoadingLyrics ? (
             <Skeleton className="h-[32rem]" />
           ) : (
@@ -47,7 +52,8 @@ const Lyrics = forwardRef<HTMLDivElement, Props>(
         </div>
 
         <div className="basis-1/2">
-          <h2 className="text-2xl mb-4">Übersetzter Liedtext (Polnisch)</h2>
+          <Heading>Übersetzter Liedtext (Polnisch)</Heading>
+
           {isLoadingTranslatedLyrics ? (
             <Skeleton className="h-[32rem]" />
           ) : (

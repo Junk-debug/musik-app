@@ -7,16 +7,14 @@ type ApiError = {
   status: number;
 };
 
-function isError(error: unknown): error is ApiError {
-  if (error instanceof Error) {
-    return true;
-  }
-
-  if (error instanceof Object && "message" in error && "status" in error) {
-    return true;
-  }
-
-  return false;
+function isApiError(value: unknown): value is ApiError {
+  return (
+    value instanceof Object &&
+    "message" in value &&
+    "status" in value &&
+    typeof value.message === "string" &&
+    typeof value.status === "number"
+  );
 }
 
 const fetchLyrics = async (lyricsLink: string): Promise<string> => {
@@ -59,6 +57,7 @@ export default function useLyrics(lyricsLink: string) {
     const makeRequest = async () => {
       setIsLoadingLyrics(true);
       setIsLoadingTranslatedLyrics(true);
+
       try {
         const lyrics = await fetchLyrics(lyricsLink);
 
@@ -76,7 +75,7 @@ export default function useLyrics(lyricsLink: string) {
           } catch (error) {
             console.error("Error translating lyrics:", error);
 
-            if (isError(error)) {
+            if (isApiError(error)) {
               setTranslatedLyricsError(error);
             }
           } finally {
@@ -86,7 +85,7 @@ export default function useLyrics(lyricsLink: string) {
       } catch (error) {
         console.error("Error fetching lyrics:", error);
 
-        if (isError(error)) {
+        if (isApiError(error)) {
           setLyricsError(error);
         }
       } finally {

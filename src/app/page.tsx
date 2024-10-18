@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen px-4 py-8 mx-auto max-w-4xl flex flex-col">
-      <header className="flex items-center justify-between">
+      <header className="flex items-center justify-between mb-6">
         <Logo />
 
         <SongsLibrary
