@@ -7,7 +7,6 @@ type Params = {
 
 export async function GET(_: Request, context: { params: Params }) {
   const lyricsUrl = decodeURIComponent(context.params.url.join("/"));
-  console.log("lyrics url", lyricsUrl);
 
   try {
     const response = await fetch(`${lyricsUrl}`);
