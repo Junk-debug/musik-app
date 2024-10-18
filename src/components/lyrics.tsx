@@ -40,28 +40,37 @@ export default function Lyrics({ lyricsLink }: { lyricsLink: string }) {
   const [translatedLyrics, setTranslatedLyrics] = useState<string | null>(null);
   const [lyrics, setLyrics] = useState<string | null>(null);
   const [isLoadingLyrics, setIsLoadingLyrics] = useState(true);
-  const [isLoadingTranslatedLyrics, setIsLoadingTranslatedLyrics] = useState(true);
+  const [isLoadingTranslatedLyrics, setIsLoadingTranslatedLyrics] =
+    useState(true);
 
   useEffect(() => {
-    let ignore = false; 
+    let ignore = false;
 
     const makeRequest = async () => {
+      setIsLoadingLyrics(true);
       try {
         const lyrics = await fetchLyrics(lyricsLink);
         if (!ignore) {
           setLyrics(lyrics);
-          setIsLoadingLyrics(false);
         }
 
         if (lyrics) {
-          const translatedLyrics = await translateLyrics(lyrics);
-          if (!ignore) {
-            setTranslatedLyrics(translatedLyrics);
+          setIsLoadingTranslatedLyrics(true);
+          try {
+            const translatedLyrics = await translateLyrics(lyrics);
+            if (!ignore) {
+              setTranslatedLyrics(translatedLyrics);
+            }
+          } catch (error) {
+            console.error("Error translating lyrics:", error);
+          } finally {
             setIsLoadingTranslatedLyrics(false);
           }
         }
       } catch (error) {
         console.error("Error fetching lyrics:", error);
+      } finally {
+        setIsLoadingLyrics(false);
       }
     };
 
@@ -70,7 +79,7 @@ export default function Lyrics({ lyricsLink }: { lyricsLink: string }) {
     }
 
     return () => {
-      ignore = true; 
+      ignore = true;
     };
   }, [lyricsLink]);
 
@@ -84,7 +93,9 @@ export default function Lyrics({ lyricsLink }: { lyricsLink: string }) {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="lyrics-section">
             <h2 className="text-2xl mb-4">Original Lyrics</h2>
-            <pre className="bg-gray-100 p-4 rounded shadow-md text-gray-800 whitespace-pre-wrap">{lyrics}</pre>
+            <pre className="bg-gray-100 p-4 rounded shadow-md text-gray-800 whitespace-pre-wrap">
+              {lyrics}
+            </pre>
           </div>
 
           <div className="lyrics-section">
@@ -92,7 +103,9 @@ export default function Lyrics({ lyricsLink }: { lyricsLink: string }) {
             {isLoadingTranslatedLyrics ? (
               <Loader />
             ) : (
-              <pre className="bg-gray-100 p-4 rounded shadow-md text-gray-800 whitespace-pre-wrap">{translatedLyrics}</pre>
+              <pre className="bg-gray-100 p-4 rounded shadow-md text-gray-800 whitespace-pre-wrap">
+                {translatedLyrics}
+              </pre>
             )}
           </div>
         </div>
