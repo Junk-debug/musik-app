@@ -7,7 +7,6 @@ type Params = {
 
 export async function GET(_: Request, context: { params: Params }) {
   const lyricsUrl = decodeURIComponent(context.params.url.join("/"));
-  console.log("lyrics url", lyricsUrl);
 
   try {
     const response = await fetch(`${lyricsUrl}`);
@@ -36,7 +35,7 @@ export async function GET(_: Request, context: { params: Params }) {
   } catch (error) {
     console.error("Error fetching lyrics:", error);
     return NextResponse.json(
-      { error: "Error fetching lyrics: " },
+      { error: "Error fetching lyrics" },
       { status: 500 }
     );
   }

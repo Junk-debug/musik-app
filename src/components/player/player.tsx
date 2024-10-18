@@ -3,36 +3,13 @@
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "./player.css";
 
-import {
-  FastForward,
-  MicVocal,
-  Pause,
-  Play,
-  Repeat,
-  Rewind,
-  SkipBack,
-  SkipForward,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
+import { MicVocal } from "lucide-react";
 import Image from "next/image";
 
 import { audioSrcTargetUrl, Song } from "@/app/songs";
 import { forwardRef } from "react";
 import H5AudioPlayer from "react-h5-audio-player";
-
-const customIcons = {
-  play: <Play className="w-full h-full" />,
-  pause: <Pause className="w-full h-full" />,
-  rewind: <Rewind className="w-full h-full" />,
-  forward: <FastForward className="w-full h-full" />,
-  next: <SkipForward className="w-full h-full" />,
-  previous: <SkipBack className="w-full h-full" />,
-  volumeMute: <VolumeX className="w-full h-full" />,
-  volume: <Volume2 className="w-full h-full" />,
-  loop: <Repeat className="w-full h-full text-primary" />,
-  loopOff: <Repeat className="w-full h-full text-muted-foreground" />,
-} satisfies AudioPlayer["props"]["customIcons"];
+import { customIcons } from "./icons";
 
 const fallbackImage =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW11c2ljLTIiPjxjaXJjbGUgY3g9IjgiIGN5PSIxOCIgcj0iNCIvPjxwYXRoIGQ9Ik0xMiAxOFYybDcgNCIvPjwvc3ZnPg==";
@@ -43,10 +20,11 @@ type Props = {
   onPrev: () => void;
   onPlay: () => void;
   onPause: () => void;
+  onLyricsClick: () => void;
 };
 
 const Player = forwardRef<H5AudioPlayer, Props>(
-  ({ currentSong, onNext, onPrev, onPlay, onPause }, ref) => {
+  ({ currentSong, onNext, onPrev, onPlay, onPause, onLyricsClick }, ref) => {
     const { cover, title, artist, audio } = currentSong;
     const audioSrc = audioSrcTargetUrl + audio;
 
@@ -86,7 +64,11 @@ const Player = forwardRef<H5AudioPlayer, Props>(
           customControlsSection={[
             RHAP_UI.LOOP,
             RHAP_UI.MAIN_CONTROLS,
-            <button className="text-muted-foreground" key={"vocal-button"}>
+            <button
+              onClick={onLyricsClick}
+              className="text-muted-foreground"
+              key={"vocal-button"}
+            >
               <MicVocal />
             </button>,
           ]}

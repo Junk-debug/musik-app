@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error translating text:", error);
     return NextResponse.json(
-      { error: "Error translating text: " },
+      { error: "Error translating text" },
       { status: 500 }
     );
   }
