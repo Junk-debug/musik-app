@@ -36,7 +36,7 @@ export async function GET(_: Request, context: { params: Params }) {
   } catch (error) {
     console.error("Error fetching lyrics:", error);
     return NextResponse.json(
-      { error: "Error fetching lyrics: " },
+      { error: "Error fetching lyrics" },
       { status: 500 }
     );
   }
