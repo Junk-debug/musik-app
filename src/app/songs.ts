@@ -71,6 +71,7 @@ const getData = (): Song[] => [
   {
     title: "Rosen",
     artist: "Ellen Allien",
+    // no lyrics
     lyrics: "https://genius.com/Ellen-allien-rosen-lyrics",
     audio: "1/191/474499327_456596681.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b2732e0c0daa39b44d3e6c9cff20",
