@@ -36,9 +36,9 @@ const Player = forwardRef<AudioPlayer, Props>(
           width={300}
           height={300}
           priority
-          className="mb-8"
+          className="mb-4 md:mb-8"
         />
-        <h3 className="flex flex-col gap-2 items-center mb-2">
+        <h3 className="flex flex-col gap-2 items-center md:mb-2">
           <span className="text-4xl font-gilroy font-bold">{title}</span>
           <span className="font-gilroy text-muted-foreground">{artist}</span>
         </h3>

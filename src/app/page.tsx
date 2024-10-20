@@ -33,7 +33,7 @@ export default function Home() {
   }, [isShowLyrics]);
 
   return (
-    <div className="min-h-dvh px-4 py-8 mx-auto max-w-4xl flex flex-col">
+    <div className="min-h-dvh px-4 py-4 md:py-8 mx-auto max-w-4xl flex flex-col">
       <header className="flex items-center justify-between mb-6">
         <Logo />
 
