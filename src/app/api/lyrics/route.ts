@@ -1,12 +1,16 @@
 import * as cheerio from "cheerio";
 import { NextResponse } from "next/server";
 
-type Params = {
-  url: string[];
-};
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
 
-export async function GET(_: Request, context: { params: Params }) {
-  const lyricsUrl = decodeURIComponent(context.params.url.join("/"));
+  const urlParam = searchParams.get("url");
+
+  if (!urlParam) {
+    return NextResponse.json({ error: "URL is required" }, { status: 400 });
+  }
+
+  const lyricsUrl = decodeURIComponent(urlParam);
 
   try {
     const response = await fetch(`${lyricsUrl}`);

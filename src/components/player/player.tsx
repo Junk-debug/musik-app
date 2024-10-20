@@ -1,5 +1,7 @@
 "use client";
 
+import { forwardRef } from "react";
+
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "./player.css";
 
@@ -7,8 +9,6 @@ import { MicVocal } from "lucide-react";
 import Image from "next/image";
 
 import { audioSrcTargetUrl, Song } from "@/app/songs";
-import { forwardRef } from "react";
-import H5AudioPlayer from "react-h5-audio-player";
 import { customIcons } from "./icons";
 
 const fallbackImage =
@@ -23,7 +23,7 @@ type Props = {
   onLyricsClick: () => void;
 };
 
-const Player = forwardRef<H5AudioPlayer, Props>(
+const Player = forwardRef<AudioPlayer, Props>(
   ({ currentSong, onNext, onPrev, onPlay, onPause, onLyricsClick }, ref) => {
     const { cover, title, artist, audio } = currentSong;
     const audioSrc = audioSrcTargetUrl + audio;

@@ -11,7 +11,7 @@ const fetchLyrics = async (
   signal?: AbortSignal
 ): Promise<string> => {
   const response = await fetch(
-    `/api/lyrics/${encodeURIComponent(lyricsLink)}`,
+    `/api/lyrics?url=${encodeURIComponent(lyricsLink)}`,
     {
       signal,
     }
