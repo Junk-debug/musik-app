@@ -14,20 +14,21 @@ export async function GET(_: Request, context: { params: Params }) {
 
     const $ = cheerio.load(html);
 
-    let lyrics = $("div.lyrics").text().trim();
-
-    if (!lyrics) {
-      lyrics = $('div[class^="Lyrics__Container"]')
-        .map((_, elem) => {
-          const snippet = $(elem)
-            .html()
-            ?.replace(/<br\s*\/?>/g, "\n")
-            .replace(/<\/?[^>]+(>|$)/g, "");
-          return snippet?.trim();
-        })
-        .get()
-        .join("\n\n");
+    const lyricsContainer = $('div[class^="Lyrics__Container"]');
+    if (lyricsContainer.text() === "") {
+      return NextResponse.json({ error: "No lyrics found" }, { status: 404 });
     }
+
+    const lyrics = lyricsContainer
+      .map((_, elem) => {
+        const snippet = $(elem)
+          .html()
+          ?.replace(/<br\s*\/?>/g, "\n")
+          .replace(/<\/?[^>]+(>|$)/g, "");
+        return snippet?.trim();
+      })
+      .get()
+      .join("\n\n");
 
     return NextResponse.json({
       lyrics: lyrics,
