@@ -1,12 +1,17 @@
-import { audioSrcTargetUrl } from "@/app/songs";
 import { NextResponse } from "next/server";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { filename: string[] } }
-) {
-  const filename = decodeURIComponent(params.filename.join("/"));
-  const targetUrl = audioSrcTargetUrl + filename;
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+
+  const urlParam = searchParams.get("url");
+
+  if (!urlParam) {
+    return NextResponse.json({ error: "URL is required" }, { status: 400 });
+  }
+
+  const targetUrl = decodeURIComponent(urlParam);
+
+  const fileName = new URL(urlParam).pathname.split("/").pop();
 
   const rangeHeader = req.headers.get("range");
   const fetchOptions = {
@@ -31,7 +36,7 @@ export async function GET(
     const responseHeaders = new Headers(fetchRes.headers);
     responseHeaders.set(
       "Content-Disposition",
-      `inline; filename="${encodeURIComponent(filename)}"`
+      `inline; filename="${encodeURIComponent(fileName || "audio.mp3")}"`
     );
     responseHeaders.set("Content-Type", "audio/mpeg");
 
