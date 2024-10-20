@@ -32,7 +32,7 @@ export default function SongsLibrary({
           <Music size={20} className="mr-1" /> Bibliothek
         </Button>
       </SheetTrigger>
-      <SheetContent className="px-0">
+      <SheetContent className="px-0 overflow-auto">
         <SheetHeader className="mb-4 px-6">
           <SheetTitle className="!text-2xl !font-gilroy !font-extrabold">
             Bibliothek
