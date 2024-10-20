@@ -22,6 +22,70 @@ const getData = (): Song[] => [
     id: uuid(),
   },
   {
+    title: "Deutschland",
+    artist: "Rammstein",
+    lyrics: "https://genius.com/Rammstein-deutschland-lyrics",
+    audio: "4/f96/474499296_456358697.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b27302add2c77fb6999e311a3248",
+    id: uuid(),
+  },
+  {
+    title: "194 Länder",
+    artist: "Mark Forster",
+    lyrics: "https://genius.com/Mark-forster-194-lander-lyrics",
+    audio: "3/b6b/320320773_456239648.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b2730f8403d3c21d596f2c98e5ff",
+    id: uuid(),
+  },
+  {
+    title: "Dynamit",
+    artist: "Kollegah",
+    lyrics: "https://genius.com/Kollegah-and-farid-bang-dynamit-lyrics",
+    audio: "2/0f9/474499236_456738731.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b2734debd218fcb40c8a9b79fb8f",
+    id: uuid(),
+  },
+  {
+    title: "Einmal um die Welt",
+    artist: "Cro",
+    lyrics: "https://genius.com/Cro-einmal-um-die-welt-lyrics",
+    audio: "2/91c/474499227_456437889.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b27397c097afa44e5cdb38a03d4f",
+    id: uuid(),
+  },
+  {
+    title: "Erfolg ist kein Glück",
+    artist: "Kontra K",
+    lyrics: "https://genius.com/Kontra-k-erfolg-ist-kein-gluck-lyrics",
+    audio: "1/ba0/371745455_456315373.mp3",
+    cover: "https://i.scdn.co/image/ab67616d00001e02596cfde8b0e1d0f597d75913",
+    id: uuid(),
+  },
+  {
+    title: "Hier kommt Alex",
+    artist: "Die Toten Hosen",
+    lyrics: "https://genius.com/Die-toten-hosen-hier-kommt-alex-lyrics",
+    audio: "1/58a/371745442_456400657.mp3",
+    cover: "https://i.scdn.co/image/ab67616d00001e02f023c090f8cc7d03238155b7",
+    id: uuid(),
+  },
+  {
+    title: "Rosen",
+    artist: "Ellen Allien",
+    lyrics: "https://genius.com/Ellen-allien-rosen-lyrics",
+    audio: "1/191/474499327_456596681.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b2732e0c0daa39b44d3e6c9cff20",
+    id: uuid(),
+  },
+  {
+    title: "Atemlos durch die Nacht",
+    artist: "Helene Fischer",
+    lyrics: "https://genius.com/Helene-fischer-atemlos-durch-die-nacht-lyrics",
+    audio: "4/019/371745442_456389179.mp3",
+    cover: "https://i.scdn.co/image/ab67616d00001e02f20892c96efa6375c5fd1527",
+    id: uuid(),
+  },
+  {
     title: "Нервы",
     artist: "Нервы",
     lyrics: "https://genius.com/Nervy-nerves-lyrics",
@@ -48,95 +112,3 @@ const getData = (): Song[] => [
 ];
 
 export default getData;
-
-export const musicList: Song[] = [
-  {
-    title: "Sonne",
-    artist: "Rammstein",
-    lyrics: "https://genius.com/Rammstein-sonne-lyrics",
-    audio: "6175.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b27325d8b7c6feee0c8d6593d606",
-    id: "1",
-  },
-  {
-    title: "194 Länder",
-    artist: "Mark Forster",
-    lyrics: "https://genius.com/Mark-forster-194-lagen-lyrics",
-    audio: "6176.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F765b18edc71abe1ba7e057cd363ffd90.1000x1000x1.jpg",
-    id: "2",
-  },
-  {
-    title: "Dynamit",
-    artist: "Kollegah",
-    lyrics: "https://genius.com/Kollegah-and-farid-bang-dynamit-lyrics",
-    audio: "6177.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F2f62d5c268e6559b9edeaa669106acbf.1000x1000x1.png",
-    id: "3",
-  },
-  {
-    title: "Einmal um die Welt",
-    artist: "Cro",
-    lyrics: "https://genius.com/Cro-einmal-um-die-welt-lyrics",
-    audio: "6178.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F66f702b435599b931c62834678690da6.1000x1000x1.png",
-    id: "4",
-  },
-  {
-    title: "Erfolg ist kein Glück",
-    artist: "Kontra K",
-    lyrics: "https://genius.com/Kontra-k-erfolg-ist-kein-gluck-lyrics",
-    audio: "6179.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F7297361945110d44d4251401d33cf95d.1000x1000x1.png",
-    id: "5",
-  },
-  {
-    title: "Hier kommt Alex",
-    artist: "Die Toten Hosen",
-    lyrics: "https://genius.com/Die-toten-hosen-hier-kommt-alex-lyrics",
-    audio: "6180.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2Fe752ca7ee39ee5f2c9747e6b7bded6ea.300x262x1.jpg",
-    id: "6",
-  },
-  {
-    title: "Deutschland",
-    artist: "Rammstein",
-    lyrics: "https://genius.com/Rammstein-deutschland-lyrics",
-    audio: "6181.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F0c53e3088fa1b572682ddde8fcee6072.1000x1000x1.png",
-    id: "7",
-  },
-  {
-    title: "Rosen",
-    artist: "Ellen Allien",
-    lyrics: "https://genius.com/Ellen-allien-rosen-lyrics",
-    audio: "6182.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2Fd3f641aac264e46aa08e9e68f50a8d21.1000x1000x1.png",
-    id: "8",
-  },
-  {
-    title: "Ode an die Freude",
-    artist: "Friedrich Schiller",
-    lyrics: "https://genius.com/Friedrich-schiller-ode-an-die-freude-annotated",
-    audio: "6184.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2F5ykqz9evchk50llsccd1ckjvq.439x600x1.jpg",
-    id: "9",
-  },
-  {
-    title: "Atemlos durch die Nacht",
-    artist: "Helene Fischer",
-    lyrics: "https://genius.com/Helene-fischer-atemlos-durch-die-nacht-lyrics",
-    audio: "6185.mp3",
-    cover:
-      "https://t2.genius.com/unsafe/315x315/https%3A%2F%2Fimages.genius.com%2Ff5f3db5d8a89084e59a6d5006db8eb0d.1000x1000x1.png",
-    id: "10",
-  },
-];
