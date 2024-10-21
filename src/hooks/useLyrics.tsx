@@ -87,7 +87,6 @@ export default function useLyrics(lyricsLink: string) {
 
           setTranslatedLyrics(translatedLyrics);
         } catch (error) {
-          console.log(signal.aborted);
           if (signal.aborted) {
             console.log("translate request aborted: ", signal.reason);
             return;
