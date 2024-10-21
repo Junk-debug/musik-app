@@ -67,7 +67,8 @@ const Player = forwardRef<AudioPlayer, Props>(
             <button
               onClick={onLyricsClick}
               className="text-muted-foreground"
-              key={"vocal-button"}
+              key={"lyrics-button"}
+              aria-label="lyrics-button"
             >
               <MicVocal />
             </button>,
