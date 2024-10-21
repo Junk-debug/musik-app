@@ -85,30 +85,6 @@ const getData = (): Song[] => [
     cover: "https://i.scdn.co/image/ab67616d00001e02f20892c96efa6375c5fd1527",
     id: uuid(),
   },
-  {
-    title: "Нервы",
-    artist: "Нервы",
-    lyrics: "https://genius.com/Nervy-nerves-lyrics",
-    audio: "4/7bb/371745465_456591636.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b273b0a298d09b243db0df4bc39d",
-    id: uuid(),
-  },
-  {
-    title: "Не с тобой я",
-    artist: "Нервы",
-    lyrics: "https://genius.com/Nervy-im-not-with-you-lyrics",
-    audio: "2/419/474499263_456543019.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b2737fa8475de0655bb66ab1b225",
-    id: uuid(),
-  },
-  {
-    title: "Еле бьется",
-    artist: "Нервы",
-    lyrics: "https://genius.com/Nervy-barely-beats-lyrics",
-    audio: "3/1bf/474499276_456349108.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b273746b67dbb32fc0e9505b8f8a",
-    id: uuid(),
-  },
 ];
 
 export default getData;
