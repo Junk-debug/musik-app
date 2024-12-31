@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { Element } from "domhandler";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -18,7 +19,29 @@ export async function GET(req: Request) {
 
     const $ = cheerio.load(html);
 
-    const lyricsContainer = $('div[class^="Lyrics__Container"]');
+    let lyricsContainer = $('[data-lyrics-container="true"]');
+
+    if (lyricsContainer.length === 0) {
+      const possibleSelectors = [
+        ".lyrics, .lyric-text, .song-lyrics",
+        'div:contains("lyrics")',
+        'div:contains("song")',
+        'div:contains("text")',
+        'div:contains("words")',
+        'div:contains("verses")',
+        'div:contains("chorus")',
+        'div:contains("lines")',
+        'div:contains("stanza")',
+        'div:contains("lyric")',
+      ];
+
+      for (const selector of possibleSelectors) {
+        lyricsContainer = $(selector) as unknown as cheerio.Cheerio<Element>;
+        if (lyricsContainer.length > 0) {
+          break;
+        }
+      }
+    }
     if (lyricsContainer.text() === "") {
       return NextResponse.json({ error: "No lyrics found" }, { status: 404 });
     }
