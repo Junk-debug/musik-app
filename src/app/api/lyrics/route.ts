@@ -21,7 +21,7 @@ export async function GET(req: Request) {
 
     let lyricsContainer = $('[data-lyrics-container="true"]');
 
-    if (lyricsContainer.length === 0) {
+    if (lyricsContainer.length === 0 || lyricsContainer.text() === "") {
       const possibleSelectors = [
         ".lyrics, .lyric-text, .song-lyrics",
         'div:contains("lyrics")',
